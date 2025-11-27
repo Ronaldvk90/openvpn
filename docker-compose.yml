@@ -1,0 +1,16 @@
+services:
+  openvpn:
+    image: ronaldvk90/openvpn:latest
+    build: openvpn/
+    container_name: openvpn
+    restart: unless-stopped
+    volumes:
+      - certificates:/usr/share/easy-rsa
+    ports:
+      - "1194:1194/udp"
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - /dev/net/tun:/dev/net/tun
+volumes:
+  certificates:
