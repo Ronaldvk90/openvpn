@@ -7,7 +7,7 @@ My goal is simple. Create a simple roadwarrior server with automatic cert creati
 In the compose file, i make a static volume mounted at /usr/share/easy-rsa. If you *docker run* the server, be sure to set the volume. 
 example:
 
-**docker run -d --cap-add NET_ADMIN --volume certificates:/usr/share/easy-rsa --name openvpn ronaldvk90/openvpn:latest**
+**docker run -d --restart=unless-stopped --cap-add NET_ADMIN --volume certificates:/usr/share/easy-rsa --name openvpn ronaldvk90/openvpn:latest**
 Or!
 **docker compose up -d**
 
